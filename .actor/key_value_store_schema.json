@@ -1,19 +1,10 @@
 {
-  "actorSpecification": 1,
+  "actorKeyValueStoreSchemaVersion": 1,
+  "title": "Financial Seasonality Key-Value Store Schema",
   "collections": {
-    "records": {
-      "title": "Seasonality Key-Value Records",
-      "description": "High-level summary reports and cached calculations.",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "totalSymbolsAnalyzed": { "type": "integer" },
-          "analyzedSymbols": { "type": "array", "items": { "type": "string" } },
-          "marketSummaries": { "type": "array" },
-          "aiContextReady": { "type": "boolean" },
-          "message": { "type": "string" }
-        }
-      }
+    "summaries": {
+      "title": "Run Output Summary",
+      "keyPrefix": "OUTPUT"
     }
   }
 }
