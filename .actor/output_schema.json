@@ -1,5 +1,18 @@
 {
-  "actorSpecification": 1,
-  "defaultDataset": "./dataset_schema.json",
-  "defaultKeyValueStore": "./key_value_store_schema.json"
+  "actorOutputSchemaVersion": 1,
+  "title": "Financial Seasonality Output Schema",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Seasonality Dataset Results",
+      "description": "Calculated multi-asset seasonality curves, probabilities, and monthly matrices",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "summary": {
+      "type": "string",
+      "title": "AI Executive Market Summary",
+      "description": "Pre-calculated executive market biases, win rates, and summaries",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+    }
+  }
 }
