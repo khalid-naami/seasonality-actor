@@ -1,0 +1,105 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "symbol": {
+      "type": "string",
+      "label": "Symbol",
+      "description": "Financial ticker or symbol requested."
+    },
+    "name": {
+      "type": "string",
+      "label": "Asset Name",
+      "description": "Full name or description of the asset."
+    },
+    "assetType": {
+      "type": "string",
+      "label": "Asset Type",
+      "description": "Category (EQUITY, ETF, INDEX, COMMODITY, CURRENCY, CRYPTO, MACRO)."
+    },
+    "dataProvider": {
+      "type": "string",
+      "label": "Data Provider",
+      "description": "Source utilized for historical market data (Yahoo Finance, Stooq, FRED)."
+    },
+    "yearsAnalyzed": {
+      "type": "integer",
+      "label": "Years Analyzed",
+      "description": "Total number of calendar years included in the calculations."
+    },
+    "historyRange": {
+      "type": "string",
+      "label": "History Range",
+      "description": "Calendar year range (e.g., 1990 - 2026)."
+    },
+    "latestPrice": {
+      "type": "number",
+      "label": "Latest Price",
+      "description": "Most recent closing price or series value."
+    },
+    "lastUpdated": {
+      "type": "string",
+      "label": "Last Updated Date",
+      "description": "Date of the last data observation (YYYY-MM-DD)."
+    },
+    "aiInsights": {
+      "type": "object",
+      "label": "AI & MCP Market Insights",
+      "description": "Pre-calculated executive bias, current month historical win rate, and best/worst calendar months."
+    },
+    "monthlyStatistics": {
+      "type": "array",
+      "label": "Monthly Statistics (Jan - Dec)",
+      "description": "Detailed month-by-month win rates (%), average returns (%), medians, and volatility."
+    },
+    "dayOfWeekProbabilities": {
+      "type": "array",
+      "label": "Day of Week Probabilities",
+      "description": "Monday to Friday win rates (%) and average return distribution."
+    },
+    "quarterlyStatistics": {
+      "type": "array",
+      "label": "Quarterly Statistics",
+      "description": "Q1, Q2, Q3, Q4 historical win rates and performance metrics."
+    },
+    "seasonalTrajectories": {
+      "type": "object",
+      "label": "Seasonal Cumulative Trajectories",
+      "description": "Day-by-day average cumulative return curves for multi-period comparisons (5Y, 10Y, 20Y, All-time)."
+    },
+    "monthlyMatrix": {
+      "type": "object",
+      "label": "Monthly Matrix",
+      "description": "Year-by-Year and Month-by-Month return percentage matrix."
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Seasonality Overview",
+      "description": "Primary seasonality summary and AI insights for each symbol",
+      "transformation": {
+        "fields": [
+          "symbol",
+          "name",
+          "assetType",
+          "dataProvider",
+          "yearsAnalyzed",
+          "historyRange",
+          "latestPrice",
+          "aiInsights"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "columns": {
+          "symbol": { "label": "Symbol" },
+          "name": { "label": "Asset Name" },
+          "assetType": { "label": "Type" },
+          "dataProvider": { "label": "Provider" },
+          "yearsAnalyzed": { "label": "Years" },
+          "historyRange": { "label": "History Range" },
+          "latestPrice": { "label": "Latest Close" }
+        }
+      }
+    }
+  }
+}
