@@ -1,0 +1,5 @@
+{
+  "actorSpecification": 1,
+  "defaultDataset": "./dataset_schema.json",
+  "defaultKeyValueStore": "./key_value_store_schema.json"
+}
