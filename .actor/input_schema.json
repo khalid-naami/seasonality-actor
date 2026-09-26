@@ -1,0 +1,89 @@
+{
+  "title": "Financial Seasonality Actor Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "symbols": {
+      "title": "Financial Symbols / Tickers",
+      "type": "array",
+      "description": "List of tickers to analyze (e.g. SPY, QQQ, GC=F, XAUUSD, BTC-USD, EURUSD, CPI, DGS10). Supports Stocks, ETFs, Forex, Commodities, Crypto, and FRED Macro Series.",
+      "editor": "json",
+      "default": [
+        "SPY",
+        "GC=F",
+        "BTC-USD",
+        "EURUSD=X"
+      ],
+      "prefill": [
+        "SPY",
+        "GC=F",
+        "BTC-USD",
+        "EURUSD=X"
+      ]
+    },
+    "dataProvider": {
+      "title": "Data Provider / Source",
+      "type": "string",
+      "description": "Choose preferred market data source. 'auto' automatically selects the source with the longest historical track record.",
+      "editor": "select",
+      "default": "auto",
+      "enum": [
+        "auto",
+        "yahoo",
+        "stooq",
+        "fred"
+      ],
+      "enumTitles": [
+        "Auto (Longest History Wins)",
+        "Yahoo Finance (Global Equities, Futures, Crypto)",
+        "Stooq (100+ Years Historical Data)",
+        "FRED (Federal Reserve Free Macro Series)"
+      ]
+    },
+    "yearsBack": {
+      "title": "Years to Analyze (0 for All-Time)",
+      "type": "integer",
+      "description": "Number of recent historical years to include in the seasonality calculations. Set 0 for the entire available historical dataset.",
+      "editor": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 150
+    },
+    "seasonalPeriods": {
+      "title": "Cumulative Seasonal Periods (Years)",
+      "type": "array",
+      "description": "Custom lookback periods to calculate average seasonal trajectories (e.g., [5, 10, 15, 20]).",
+      "editor": "json",
+      "default": [
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "includeMonthlyMatrix": {
+      "title": "Include Full Monthly Matrix (Year x Month)",
+      "type": "boolean",
+      "description": "Whether to return the complete historical monthly return table for each calendar year.",
+      "editor": "checkbox",
+      "default": true
+    },
+    "includeProbabilities": {
+      "title": "Include Win Rates & Probabilities",
+      "type": "boolean",
+      "description": "Calculate Day-of-the-Week (Mon-Fri) and Quarterly (Q1-Q4) win rates and return distributions.",
+      "editor": "checkbox",
+      "default": true
+    },
+    "includeDailyCurves": {
+      "title": "Include Daily Cumulative Seasonal Trajectories",
+      "type": "boolean",
+      "description": "Return normalized day-by-day average cumulative return curves for multi-period seasonal charting.",
+      "editor": "checkbox",
+      "default": true
+    }
+  },
+  "required": [
+    "symbols"
+  ]
+}
