@@ -1,0 +1,17 @@
+{
+  "actorSpecification": 1,
+  "name": "financial-seasonality-actor",
+  "title": "Financial Seasonality & Multi-Asset Probability Analytics",
+  "description": "Calculates historical seasonality curves (5Y, 10Y, 20Y, All-Time), monthly return matrices, day-of-week win rates, and AI market biases across Stocks, ETFs, Forex, Crypto, and Commodities (Yahoo, Stooq 100Y, and FRED free macro series).",
+  "version": "1.0",
+  "meta": {
+    "templateId": "python-empty"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": "./dataset_schema.json",
+    "keyValueStore": "./key_value_store_schema.json"
+  },
+  "output": "./output_schema.json"
+}
