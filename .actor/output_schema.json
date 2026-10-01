@@ -1,18 +1,18 @@
 {
-  "actorOutputSchemaVersion": 1,
-  "title": "Financial Seasonality Output Schema",
-  "properties": {
-    "results": {
-      "type": "string",
-      "title": "Seasonality Dataset Results",
-      "description": "Calculated multi-asset seasonality curves, probabilities, and monthly matrices",
-      "template": "{{links.apiDefaultDatasetUrl}}/items"
-    },
-    "summary": {
-      "type": "string",
-      "title": "AI Executive Market Summary",
-      "description": "Pre-calculated executive market biases, win rates, and summaries",
-      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+    "actorOutputSchemaVersion": 1,
+    "title": "Financial Seasonality Output Schema",
+    "properties": {
+        "results": {
+            "type": "string",
+            "title": "Dataset Items",
+            "description": "Dataset items and records produced by the Actor",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "overview": {
+            "type": "string",
+            "title": "Summary Payload",
+            "description": "Summary report stored in Key-Value store",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/OUTPUT"
+        }
     }
-  }
 }
